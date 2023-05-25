@@ -109,10 +109,9 @@ trait ProcesRoute
   // obtener la cantidad lo que digite en la url
   $CantidadParametros = sizeof(self::getRoute());
 
-  $Parametros = [];
-
   if($CantidadParametros > 2 )
   {
+   $Parametros = [];
     /// método con paramatros
     
     for($i=2;$i<$CantidadParametros;$i++)

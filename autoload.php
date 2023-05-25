@@ -17,7 +17,4 @@ spl_autoload_register(function($file) use($RaizApp){
     }
 });
 
-echo "<pre>";
  Route::run() ;
- 
-echo "</pre>";

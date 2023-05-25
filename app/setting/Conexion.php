@@ -9,7 +9,7 @@ class Conexion
 
     private static $Conector = null;
 
-    private static $PPS = null;
+    public static $PPS = null;
 
     // realiza la conexión a la base de datos
 

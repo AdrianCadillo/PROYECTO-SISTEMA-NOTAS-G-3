@@ -3,11 +3,11 @@ use Dotenv\Dotenv;
 
 
 require 'vendor/autoload.php';
-require 'autoload.php';
 
 Dotenv::createImmutable(__DIR__)->load();
 
 require 'app/setting/Config.php';
+require 'autoload.php';
 
 
 /*
