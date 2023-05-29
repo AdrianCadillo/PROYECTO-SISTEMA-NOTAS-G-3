@@ -41,7 +41,11 @@ interface Orm
 
  /// Método Update
 
+ public function Update(array $datos);
+
  /// Método delete
+
+ public function delete($id);
 
 
 

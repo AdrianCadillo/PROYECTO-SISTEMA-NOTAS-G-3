@@ -28,4 +28,20 @@ class Conexion
     }
 
 
+    /// liberar recursos
+
+    public static function closeConexionBD()
+    {
+        if(self::$Conector != null)
+        {
+            self::$Conector = null;
+        }
+
+        if(self::$PPS != null)
+        {
+            self::$PPS = null;
+        }
+    }
+
+
 }

@@ -10,17 +10,23 @@ class Model extends Conexion implements Orm
  private $Value;
 
  private array $ValuesWhereOr = [];
-
+ 
  protected $alias; /// alias de la tabla
+
+ /// primary key pk del modelo
+
+ protected $primaryKey;
 /*==================================
    Método all (muestra todo registro)
+  
  ====================================*/
 
- public function __construct()
- {
-   $this->Tabla.= " $this->alias";  /// cuando es consulta le aplicamos alias al modelo
-   self::$Query = "SELECT * FROM $this->Tabla";
- }
+  public function Query()
+  {
+   $Tabla = $this->Tabla." $this->alias";  /// cuando es consulta le aplicamos alias al modelo
+   self::$Query = "SELECT * FROM $Tabla";
+   return $this;
+  }
 
  public static function all()
  {
@@ -55,10 +61,15 @@ class Model extends Conexion implements Orm
         self::$PPS = self::getConexion_()->prepare(self::$Query);
         self::$PPS->bindParam(1,$this->Value);
         self::$PPS->execute();
-        return self::$PPS->fetchAll(\PDO::FETCH_OBJ);
+        
+        if(self::$PPS->rowCount() > 0)
+        {
+         return self::$PPS->fetchAll(\PDO::FETCH_OBJ)[0];
+        }
+        return [];
        } catch (\Throwable $th) {
          echo $th->getMessage();
-       }
+       }finally{self::closeConexionBD();}
  }
 
  public function get()
@@ -82,7 +93,7 @@ class Model extends Conexion implements Orm
         return self::$PPS->fetchAll(\PDO::FETCH_OBJ);
        } catch (\Throwable $th) {
          echo $th->getMessage();
-       }
+       }finally{self::closeConexionBD();}
  }
 
  public function Join(string $TablaFk,string $Fk,string $operador,string $PK)
@@ -154,8 +165,59 @@ class Model extends Conexion implements Orm
        return self::$PPS->execute(); /// 0 | 1
     } catch (\Throwable $th) {
        echo $th->getMessage();
-    }
+    }finally{self::closeConexionBD();}
+ }
 
+ /// Método Update => UPDATE estudiante set nombres=:nombres,apellidos=:apellidos where id_estudiante=:id_estudiante
 
+ public function Update(array $datos)
+ {
+   self::$Query = "UPDATE $this->Tabla SET ";
+
+   /// le especificamos que atributos vamos a modificar
+
+   foreach($datos as $atributo=>$value)
+   {
+      self::$Query.="$atributo=:$atributo,";
+   }
+   /// eliminamos la ultima coma
+
+   self::$Query = rtrim(self::$Query,",")." WHERE ".array_key_first($datos)."=:".array_key_first($datos);
+
+   /// el proceso de pdo para ejecutar dicha query
+
+   try {
+      self::$PPS = self::getConexion_()->prepare(self::$Query); 
+
+      foreach ($datos as $key => $value) {
+       self::$PPS->bindValue(":$key",$value);
+      }
+      
+      return self::$PPS->execute(); /// 0 | 1
+
+   } catch (\Throwable $th) {
+      echo $th->getMessage();
+   }finally{self::closeConexionBD();}
+ }
+
+ /// Método delete => DELETE FROM TABLA WHERE id
+
+ public function delete($id)
+ {
+   
+   self::$Query = "DELETE FROM $this->Tabla WHERE $this->primaryKey=:$this->primaryKey";
+
+    /// el proceso de pdo para ejecutar dicha query
+    
+    try {
+      self::$PPS = self::getConexion_()->prepare(self::$Query); 
+
+      self::$PPS->bindParam(":$this->primaryKey",$id);
+       
+      return self::$PPS->execute(); /// 0 | 1
+
+   } catch (\Throwable $th) {
+      echo $th->getMessage();
+   }finally{self::closeConexionBD();}
  }
 }
