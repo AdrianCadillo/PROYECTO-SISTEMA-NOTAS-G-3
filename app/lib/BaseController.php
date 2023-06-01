@@ -18,4 +18,9 @@ class BaseController extends View
     {
       return URL_BASE.$routeController;
     }
+
+    public function RedirectTo(string $routeController)
+    {
+      header("location:".URL_BASE.$routeController);
+    }
 }

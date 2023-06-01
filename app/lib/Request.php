@@ -8,7 +8,7 @@ trait Request
     {
         if(isset($_POST[$NameInput]))
         {
-            return $_POST[$NameInput];
+            return !empty($_POST[$NameInput]) ? $_POST[$NameInput]:'';
         }
 
         return null;
@@ -55,4 +55,6 @@ trait Request
      {
        return isset($_POST[$NameBoton]);
      }
+
+     
 }

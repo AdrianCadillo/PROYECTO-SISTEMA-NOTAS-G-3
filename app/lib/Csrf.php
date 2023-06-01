@@ -11,7 +11,10 @@ trait Csrf
 
      $Token =bin2hex(openssl_random_pseudo_bytes(32));/// genera el token
      
-     $this->Session("token",$Token);
+     if(!$this->ExistSession("token"))
+     {
+      $this->Session("token",$Token);
+     }
 
      return $this->getSession("token");
   }

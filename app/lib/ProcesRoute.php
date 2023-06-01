@@ -81,7 +81,7 @@ trait ProcesRoute
             }
             else
             {
-                echo "error, no especificaste el método";
+                $Objeto->index();
             }
          }
          else

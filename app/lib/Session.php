@@ -33,4 +33,17 @@ trait Session
             unset($_SESSION[$NameSession]);
           }
      }
+
+     public function old(string $Input)
+     {
+        $Valor = "";
+
+        if($this->ExistSession($Input))
+        {
+          $Valor = $this->getSession($Input);
+          $this->destroySession($Input);
+        }
+
+        return $Valor;
+     }
 }
