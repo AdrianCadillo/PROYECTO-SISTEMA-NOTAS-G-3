@@ -61,5 +61,14 @@ class UsuarioController extends BaseController
         echo file_get_contents($this->DirectorioTxt);
     }
 
+    /// mostrar el formulario de usuarios
+
+    public function index()
+    {
+        $this->ModelUser = new Usuario;
+        $Usuarios = $this->ModelUser->Query()->get();
+        $this->View("usuarios.index",["listado_usuarios"=>$Usuarios]);
+    }
+
     
 }

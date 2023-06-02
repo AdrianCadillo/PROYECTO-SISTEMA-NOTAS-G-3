@@ -18,8 +18,12 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{$this->asset("dist/css/adminlte.min.css")}}">
 
+  {{-- CSS PARA SWEET ALERT 2---}}
+  <link rel="stylesheet" href="{{$this->getNodeModules("sweetalert2/dist/sweetalert2.css")}}">
+  <link rel="stylesheet" href="{{$this->getNodeModules("sweetalert2/dist/sweetalert2.min.css")}}">
+
 </head>
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -77,6 +81,12 @@
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
+
+{{--- js para el sweet alert 2 ---}}
+<script src="{{$this->getNodeModules("sweetalert2/dist/sweetalert2.all.js")}}"></script>
+<script src="{{$this->getNodeModules("sweetalert2/dist/sweetalert2.all.min.js")}}"></script>
+<script src="{{$this->getNodeModules("sweetalert2/dist/sweetalert2.js")}}"></script>
+<script src="{{$this->getNodeModules("sweetalert2/dist/sweetalert2.min.js")}}"></script>
 
 @yield('js')
 </body>

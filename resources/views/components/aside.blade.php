@@ -36,11 +36,47 @@
                with font-awesome or any other icon font library -->
            
           <li class="nav-item">
+            <a href="{{$this->route("usuario")}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Usuarios
+              
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{$this->route("estudiante")}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Estudiantes
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Widgets
-              
+                Docentes
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="pages/widgets.html" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Boleta de notas
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="pages/widgets.html" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Llenado de notas
               </p>
             </a>
           </li>

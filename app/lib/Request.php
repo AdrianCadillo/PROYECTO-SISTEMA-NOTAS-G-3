@@ -14,6 +14,16 @@ trait Request
         return null;
     }
 
+    public function get(string $NameInput)
+    {
+        if(isset($_GET[$NameInput]))
+        {
+            return  $_GET[$NameInput];
+        }
+
+        return null;
+    }
+
     /*** Metodo que valida si un input tipo file esta definido */
 
     public function file(string $NameInput)

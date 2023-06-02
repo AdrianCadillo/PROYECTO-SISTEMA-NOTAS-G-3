@@ -23,4 +23,5 @@ trait Directories
     {
       return str_replace(".","/",$this->RaizLayout.$file).".blade.php";
     }
+    
 }

@@ -21,6 +21,7 @@ class EstudianteController extends BaseController
 
     public function index()
     {
+  
       /*
       $this->ModelEstudiante = new Estudiante;
       $estudiantes = $this->ModelEstudiante->Query()->get();*/
@@ -31,6 +32,8 @@ class EstudianteController extends BaseController
 
     public function showEstudiante()
     {
+     if($this->getValidateToken($this->get("token_")))
+     {
       $this->ModelEstudiante = new Estudiante;
 
       $this->Model_Estudiante_curso = new Estudiante_cursos;
@@ -39,13 +42,17 @@ class EstudianteController extends BaseController
 
       $Estudiante_Json = '';
       
-      $Estudiantes = $this->ModelEstudiante->Query()->get(); /// obtengo todos los estuidantes
+      $Estudiantes = $this->ModelEstudiante->Query()->
+      join("usuarios as u","e.id_usuario","=","u.id_usuario")->get(); /// obtengo todos los estuidantes
       foreach($Estudiantes as $estudiante)
       {
         $Estudiante_Json.= '{
           "id_estudiante":"'.$estudiante->id_estudiante.'",
+          "id_usuario":"'.$estudiante->id_usuario.'",
           "dni":"'.$estudiante->dni.'",
           "estudiante":"'.$estudiante->apellidos.' '.$estudiante->nombres.'",
+          "nombres":"'.$estudiante->nombres.'",
+          "apellidos":"'.$estudiante->apellidos.'",
           "telefono":"'.$estudiante->telefono.'",
           "direccion":"'.$estudiante->direccion.'",
           "cursos_matriculados":[';
@@ -69,6 +76,7 @@ class EstudianteController extends BaseController
       $Estudiante_Json = '{"estudiantes":['.$Estudiante_Json.']}';
 
       echo $Estudiante_Json;
+     }
 
     }
     public function create()
@@ -231,6 +239,11 @@ class EstudianteController extends BaseController
     {
        if($this->file_size("foto") > 0)
        {
+         if(!file_exists($this->Destino_Foto))
+         {
+          // lo creamos
+          mkdir($this->Destino_Foto);
+         }
          /// creamos el nuevo nombre de la imagen
 
          if(in_array($this->file_Type("foto"),$this->AcceptImagen))
@@ -255,5 +268,54 @@ class EstudianteController extends BaseController
 
          return move_uploaded_file($this->file_Content("foto"),$this->Destino_Foto);
        }
+    }
+
+    /// actualizar estudiantes
+
+    public function update($id)
+    {
+      if($this->getValidateToken($this->post("token_")))
+      {
+        $this->ModelEstudiante = new Estudiante;
+
+        // verificamos si existe un estudiante con el dni
+ 
+        $Estudiante = $this->ModelEstudiante->Query()->Where("dni","=",$this->post("dni"))->first();
+        
+        if($Estudiante)
+        {
+          echo $this->ModelEstudiante->Update([
+            "id_estudiante"=>$id,
+            "nombres"=>$this->post("nombres"),
+            "apellidos"=>$this->post("apellidos"),
+            "telefono"=>$this->post("telefono"),
+            "direccion"=>$this->post("direccion")
+          ]);
+        }else
+        {
+          echo $this->ModelEstudiante->Update([
+            "id_estudiante"=>$id,
+            "dni"=>$this->post("dni"),
+            "nombres"=>$this->post("nombres"),
+            "apellidos"=>$this->post("apellidos"),
+            "telefono"=>$this->post("telefono"),
+            "direccion"=>$this->post("direccion")
+          ]);
+        }
+      }
+    }
+
+    /// método para eliminar estudiante
+
+    public function delete_($id)
+    {
+      /// validamos el token
+
+      if($this->getValidateToken($this->post("token_")))
+      {
+        $this->ModelUser = new Usuario;
+
+        echo $this->ModelUser->delete($id);
+      }
     }
 }
