@@ -3,7 +3,7 @@ namespace lib;
 
 class BaseController extends View 
 {
-    use Directories,Request,Csrf;
+    use Directories,Csrf;
 
     private string $NodeModules = "node_modules/";
 

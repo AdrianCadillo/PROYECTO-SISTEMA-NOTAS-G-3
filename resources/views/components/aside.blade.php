@@ -37,7 +37,7 @@
            
           <li class="nav-item">
             <a href="{{$this->route("usuario")}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Usuarios
               
@@ -47,7 +47,7 @@
 
           <li class="nav-item">
             <a href="{{$this->route("estudiante")}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 Estudiantes
               </p>
@@ -56,7 +56,7 @@
 
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 Docentes
               </p>
@@ -64,8 +64,26 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{$this->route("curso")}}" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Cursos
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{$this->route("curso")}}" class="nav-link">
+              <i class="nav-icon fas fa-plus"></i>
+              <p>
+                semestre académico
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-file"></i>
               <p>
                 Boleta de notas
               </p>
@@ -74,7 +92,7 @@
 
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-file"></i>
               <p>
                 Llenado de notas
               </p>

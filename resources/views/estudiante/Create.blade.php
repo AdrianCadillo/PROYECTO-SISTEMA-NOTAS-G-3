@@ -40,9 +40,15 @@
                        <b>El estudiante se registró correctamente</b>
                     </div>
                     @else 
-                    <div class="alert alert-danger">
-                     <b>Error al registrar estudiante</b>
-                   </div>
+                      @if ($this->getSession("mensaje") === 'error-archivo')
+                      <div class="alert alert-warning">
+                        <b>Error, el archivo seleccionado es incorrecto</b>
+                      </div>
+                      @else 
+                      <div class="alert alert-danger">
+                        <b>Error al registrar estudiante</b>
+                      </div>
+                      @endif
                     @endif
                     @php
                       $this->destroySession("mensaje")  

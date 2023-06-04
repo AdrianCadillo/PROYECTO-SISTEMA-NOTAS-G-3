@@ -15,7 +15,7 @@ class EstudianteController extends BaseController
     private array $AcceptImagen =["image/jpeg","image/png"];
     private array $WrningExist = [];
 
-    private string $NameImagen;
+    private $NameImagen=null;
 
     private array $Errors = [];
 
@@ -209,12 +209,16 @@ class EstudianteController extends BaseController
       {
         /// registrar un usuario
 
+        if($this->UploadFoto("foto")!== 'no-accept')
+        {
+          /// registrar un usuario
+
         $this->ModelUser->Insert([
           "username"=>$this->post("username"),
           "email"=>$this->post("email_"),
           "pasword"=>password_hash($this->post("password"),PASSWORD_BCRYPT),
           "rol"=>"Estudiante",
-          "foto"=>$this->UploadFoto()?$this->NameImagen:null
+          "foto"=>$this->getNameImagen()
         ]);
 
         /// obtenemos el usuario
@@ -230,45 +234,15 @@ class EstudianteController extends BaseController
           "direccion"=>$this->post("direccion"),
           "id_usuario"=>$Usuario->id_usuario
         ]));
+        }
+        else{
+          $this->Session("mensaje","error-archivo");
+        }
 
       }
        
     }
-   
-    private function UploadFoto()
-    {
-       if($this->file_size("foto") > 0)
-       {
-         if(!file_exists($this->Destino_Foto))
-         {
-          // lo creamos
-          mkdir($this->Destino_Foto);
-         }
-         /// creamos el nuevo nombre de la imagen
-
-         if(in_array($this->file_Type("foto"),$this->AcceptImagen))
-         {
-            if($this->file_Type("foto") === $this->AcceptImagen[0])
-            {
-              $TipoImagen = ".jpg";
-            }
-            else{
-              $TipoImagen = ".png";
-            }
-         }
-         else{
-          echo "no es una imagen";
-         }
-
-         $this->NameImagen = date("Ymd").rand().$TipoImagen;
-
-         $this->Destino_Foto.=$this->NameImagen;
-
-         /// subir la imagen al servidor
-
-         return move_uploaded_file($this->file_Content("foto"),$this->Destino_Foto);
-       }
-    }
+  
 
     /// actualizar estudiantes
 

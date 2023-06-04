@@ -10,7 +10,7 @@
                 class="fas fa-plus"></i></button>
     </div>
     <div class="card-body table table-responsive">
-        <table class="table table-bordered table-striped" id="Tabla-cursos">
+        <table class="table table-bordered table-striped table-sm" id="Tabla-cursos">
             <thead>
                 <tr>
                     <th>CATEGORÍA</th>
@@ -25,63 +25,45 @@
 </div>
 {{-- MODAL PARA CREAR CURSOS ----}}
 
-<div class="modal fade" id="modal-crear-estudiante">
-    <div class="modal-dialog modal-xl">
+<div class="modal fade" id="modalcursos">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5>Crear cursos</h5>
-                <button type="button" class="btn-close" id="salir" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header"><h5>Crear cursos</h5>
+                <button type="button" class="btn-close cerrar" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" id="form_curso">
+                <input type="hidden" name="token_" value="{{$this->get_Csrf()}}">
                 <div class="modal-body">
-                    <input type="hidden" name="token_" value="{{$this->get_Csrf()}}">
-
                     <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-5 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="categoria" class="form-label">Categoría(*)</label>
-                                <select name="categoria" id="categoria" class="form-select">
-
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-4 col-lg-4 col-md-7 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="nombre_curso" class="form-label">NOMBRE CURSO(*)</label>
-                                <input type="text" name="name_curso" id="name_curso" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-xl-4 col-lg-4 col-md-7 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="descripcion" class="form-label">DESCRIPCIÓN(*)</label>
-                                <input type="text" name="descripcion" id="descripcion" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-xl-12 col-lg-12 col-md-5 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="docente" class="form-label">Docente(*)</label>
-                                <select name="docente" id="docente" class="form-select">
-
-                                </select>
-                            </div>
-                        </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
+                        <label for="id_categoria">Categoría(*)</label>
+                        <select name="id_categoria" id="id_categoria" class="form-select"></select>
+                    </div>
+    
+                    <div class="col-xl-9 col-lg-9 col-md-8 col-sm-6 col-12">
+                        <label for="nombre_curso" class="form-label">Nombre curso(*)</label>
+                        <input type="text" name="nombre_curso" id="name_curso" class="form-control" placeholder="nombre curso....">
+                    </div>
+    
+                    <div class="col-12">
+                        <label for="descripcion" class="form-label">Descripción</label>
+                       <textarea name="descripcion" id="descripcion" cols="30" rows="6" class="form-control" placeholder="Describa el curso...."></textarea>
+                    </div>
+    
+                    <div class="col-12">
+                        <label for="docente" class="form-label">Docente(*)</label>
+                        <select name="id_docente" id="id_docente" class="form-select"></select>
+                    </div>
                     </div>
                 </div>
-
                 <div class="modal-footer">
-                    <button class="btn btn-primary" id="save"><i class="fas fa-save"></i>Guardar</button>
-
-                    <button class="btn btn-info " id="save_cat"><i class="fas fa-plus"></i>nueva categoría</button>
-
-                    <button class="btn btn-danger " id="save_doc"><i class="fas fa-plus"></i>craer docente</button>
+                            <button class="btn btn-success" id="save_curso"><b>Guardar</b></button>
+                            <button class="btn btn-info" id="crear-docente"><b>crear docente</b></button>
+                 </div>
                 </div>
             </form>
         </div>
     </div>
-</div>
 @endsection
 
 @section('js')
@@ -98,7 +80,7 @@
   }
   function create()
   {
-    $('#modal-crear-estudiante').modal("show")
+    $('#modalcursos').modal("show")
   }
 </script> 
 @endsection

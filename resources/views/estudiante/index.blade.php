@@ -4,12 +4,13 @@
 
 @section('contenido')
 <div class="card">
+    
     <div class="card-header">
         <h5 class=" float float-start">Listado de estudiantes</h5>
         <a href="{{$this->route("estudiante/create")}}" class="btn btn-primary float float-end"><b>nuevo</b><i class="fas fa-plus"></i></a>
     </div>
     <div class="card-body">
-        <table class="table table-bordered table-striped" id="Tabla-estudiantes">
+        <table class="table table-bordered table-striped table-sm" id="Tabla-estudiantes">
           <thead>
             <tr>
                 <th>DNI</th>

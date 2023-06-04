@@ -220,4 +220,38 @@ class Model extends Conexion implements Orm
       echo $th->getMessage();
    }finally{self::closeConexionBD();}
  }
+
+
+ /// procedimiento almacenado para realizar [CRUD COMPLETO]
+ public function procedure(string $NameProcedure,$evento,array $datos=[])
+ {
+   self::$Query = "CALL $NameProcedure(";
+
+   foreach($datos as $value)
+   {
+      self::$Query.="?,";
+   }
+
+   self::$Query = rtrim(self::$Query,",").")";
+
+   try {
+      self::$PPS = self::getConexion_()->prepare(self::$Query);
+
+      for ($i=0; $i <count($datos) ; $i++) { 
+         
+         self::$PPS->bindValue(($i+1),$datos[$i]);
+      }
+      if(strtoupper($evento) ==='C')
+      {
+         self::$PPS->execute();
+ 
+         return self::$PPS->fetchAll(\PDO::FETCH_OBJ);
+      }
+
+      return self::$PPS->execute();
+
+   } catch (\Throwable $th) {
+      //throw $th;
+   }
+ }
 }

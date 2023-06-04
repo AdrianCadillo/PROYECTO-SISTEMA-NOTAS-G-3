@@ -47,6 +47,9 @@ interface Orm
 
  public function delete($id);
 
+  /// procedimiento almacenado para realizar [CRUD COMPLETO]
+ public function procedure(string $NameProcedure,$evento,array $datos=[]);
+
 
 
 
