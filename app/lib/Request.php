@@ -8,7 +8,7 @@ trait Request
     {
         if(isset($_POST[$NameInput]))
         {
-            return !empty($_POST[$NameInput]) ? $_POST[$NameInput]:'';
+            return !empty($_POST[$NameInput]) ? $_POST[$NameInput]:null;
         }
 
         return null;
@@ -64,6 +64,14 @@ trait Request
      public function onClick(string $NameBoton):bool
      {
        return isset($_POST[$NameBoton]);
+     }
+
+     /// enviar la data de todo el formulario
+
+     public function RequestAll():array
+     {
+        unset($_POST["token_"]);
+        return $_POST;
      }
 
      

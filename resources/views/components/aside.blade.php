@@ -83,6 +83,15 @@
 
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Inscripción <span>2023-I</span>
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
                 Boleta de notas
