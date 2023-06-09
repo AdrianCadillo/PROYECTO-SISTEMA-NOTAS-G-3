@@ -1,12 +1,13 @@
 <?php 
 use lib\BaseController;
 use models\Docente;
+use models\Estudiante;
 use models\Usuario;
 use repository\implementacion\Model;
 
 class DocenteController extends BaseController
 {
-    private Model $ModelDocente,$ModelUser;
+    private Model $ModelDocente,$ModelUser,$ModelEstudiante;
 
     private array $WarningExiste =[];
   /// inicializar el contructor
@@ -14,9 +15,13 @@ class DocenteController extends BaseController
   {
     parent::__construct();
 
+    $this->NoAuth();
+
     $this->ModelDocente = new Docente;
 
     $this->ModelUser = new Usuario;
+
+    $this->ModelEstudiante = new Estudiante;
   }
 
   /// método para mostrar las categorias
@@ -55,6 +60,11 @@ class DocenteController extends BaseController
 
     $UsuarioEmail = $this->ModelUser->Query()->Where("email","=",$this->post("email_"))->first();
 
+    /*verificamos la existencia del dni en estudiantes, ya que no debe existir un dni igual en es
+    estudiante y docente*/
+
+    $Docente_Dni_En_Estudiante = $this->ModelEstudiante->Query()->Where("dni","=",$this->post("dni"))->first();
+
     if($Docente_Dni)
     {
       $this->WarningExiste[] ='Ese número de dni ya existe';
@@ -68,6 +78,11 @@ class DocenteController extends BaseController
     if($UsuarioEmail)
     {
       $this->WarningExiste[] ='El email '.$this->post("email_").'  ya existe';
+    }
+
+    if($Docente_Dni_En_Estudiante)
+    {
+      $this->WarningExiste[] ='El dni '.$this->post("dni").'  ya existe en el sistema';
     }
     /// verificar si el array con elemntos
 
@@ -90,7 +105,7 @@ class DocenteController extends BaseController
         "username"=>$this->post("username"),
         "email"=>$this->post("email_"),
         "pasword"=>password_hash($this->post("password"),PASSWORD_BCRYPT),
-        "rol"=>"Estudiante",
+        "rol"=>"Docente",
         "foto"=>$this->getNameImagen()
       ]);
 

@@ -42,7 +42,7 @@ class Model extends Conexion implements Orm
  /*==================================
    Método Where
  ====================================*/
- public function Where(string $atributo,$operador,string|int $valor)
+ public function Where(string $atributo,$operador,$valor)
  {
     self::$Query.=" WHERE $atributo $operador ?";
 
@@ -113,7 +113,7 @@ class Model extends Conexion implements Orm
     return $this;
  }
 
- public function WhereOr(string $atrubuto,$operador, string|int $valor)
+ public function WhereOr(string $atrubuto,$operador, $valor)
  {
     self::$Query.= " OR $atrubuto $operador ?";
 
@@ -164,7 +164,7 @@ class Model extends Conexion implements Orm
        
        return self::$PPS->execute(); /// 0 | 1
     } catch (\Throwable $th) {
-       echo $th->getMessage();
+       return "error";
     }finally{self::closeConexionBD();}
  }
 

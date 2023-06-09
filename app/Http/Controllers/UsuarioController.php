@@ -8,6 +8,11 @@ class UsuarioController extends BaseController
     private Model $ModelUser;
 
     private string $DirectorioTxt = "public/";
+    public function __construct()
+    {
+        parent::__construct();
+        $this->NoAuth();
+    }
     public function create()
     {
        //$data = "hola desde create, VISTA $saludo" ;

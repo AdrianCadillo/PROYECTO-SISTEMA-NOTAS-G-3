@@ -17,7 +17,7 @@ interface Orm
   /*==================================
    Método Where
  ====================================*/
- public function Where(string $atrubuto,$operador, string|int $valor);
+ public function Where(string $atrubuto,$operador,$valor);
 
 /*==================================
    Método First
@@ -31,7 +31,7 @@ interface Orm
 
  public function select();
 
- public function WhereOr(string $atrubuto,$operador, string|int $valor);
+ public function WhereOr(string $atrubuto,$operador,$valor);
 
 
  public function OrderBy(string $atributo,$secuencia);

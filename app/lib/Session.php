@@ -46,4 +46,19 @@ trait Session
 
         return $Valor;
      }
+
+     /// recordar mi session
+
+     public function RememberMe(bool $remember, $Data)
+     {
+       if($remember)
+       {
+        /// creamos una cookie
+        setcookie("remember",openssl_encrypt($Data,METHODO_CIFRADO,PASS_CIFRADO),VIDA_COOKIE,"/");
+       }
+       else
+       {
+        $this->Session("remember",$Data);
+       }
+     }
 }

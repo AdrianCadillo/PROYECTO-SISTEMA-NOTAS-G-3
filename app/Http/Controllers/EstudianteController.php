@@ -18,6 +18,11 @@ class EstudianteController extends BaseController
     private $NameImagen=null;
 
     private array $Errors = [];
+    public function __construct()
+    {
+        parent::__construct();
+        $this->NoAuth();
+    }
 
     public function index()
     {

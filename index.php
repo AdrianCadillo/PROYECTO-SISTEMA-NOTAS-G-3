@@ -1,4 +1,13 @@
 <?php 
+
+/// depuración de errores
+
+ini_set("display_errors",1);
+
+ini_set("log_errors",1);
+
+ini_set("error_log","C:/laragon/www/sistema_notas/php_error.log");
+
 use Dotenv\Dotenv;
 
 

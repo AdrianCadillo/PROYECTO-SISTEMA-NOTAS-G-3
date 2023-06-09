@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="{{$this->getNodeModules("sweetalert2/dist/sweetalert2.css")}}">
   <link rel="stylesheet" href="{{$this->getNodeModules("sweetalert2/dist/sweetalert2.min.css")}}">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">

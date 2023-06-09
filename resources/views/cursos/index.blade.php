@@ -10,6 +10,41 @@
                 class="fas fa-plus"></i></button>
     </div>
     <div class="card-body table table-responsive">
+           @if ($this->ExistSession("mensaje"))
+            @if ($this->getSession("mensaje") == 1)
+            <div class="alert alert-success">
+               Datos del curso importados correctamente
+            </div>
+            @else
+            <div class="alert alert-danger">
+                Error al importar datos del curso
+            </div>
+            @endif
+            @php
+            $this->destroySession("mensaje")
+            @endphp
+            @endif
+
+            @if ($this->ExistSession("errores"))
+            
+            <div class="alert alert-danger">
+                {{$this->getSession("errores")}}
+            </div>
+            @php
+            $this->destroySession("errores")
+            @endphp
+            @endif
+            <form action="{{$this->route("curso/import")}}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="token_" value="{{$this->get_Csrf()}}">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-9 col-md-8 col-12">
+                        <input type="file" name="archivo_excel" id="archivo_excel" class="form-control">
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-12">
+                        <button class="btn btn-danger" ><i class="fas fa-upload"></i> Importar datos</button>
+                        </div>
+                </div>
+            </form>
         <table class="table table-bordered table-striped table-sm" id="Tabla-cursos">
             <thead>
                 <tr>
