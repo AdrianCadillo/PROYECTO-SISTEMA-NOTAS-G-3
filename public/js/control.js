@@ -1,5 +1,5 @@
 /// abrir modal para poner el foco en el primer input
-
+ 
 function focusInputModal(modal,input){
 
     /// primero abrimos el modal

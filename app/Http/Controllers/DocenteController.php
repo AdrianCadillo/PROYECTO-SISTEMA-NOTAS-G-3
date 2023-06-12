@@ -139,5 +139,24 @@ class DocenteController extends BaseController
 
    }
   }
+
+  /// vista para mostrar  el llenado de notas
+  public function llenadonotas()
+  {
+    if($this->hasPermission("Docente"))
+    {
+      $Id_usuario = $this->profile()->id_usuario;
+      /// mostramos los cursos asignados del docente, pero aquellos cursos que tengan estudiantes inscritos
+      $Cursos = $this->ModelDocente->Query()
+      ->Join("cursos as c","c.id_docente","=","doc.id_docente")
+      ->Join("usuarios as u","doc.id_usuario","=","u.id_usuario")
+      ->Join("estudiante_cursos as ec","ec.id_curso","=","c.id_curso")
+      ->Where("doc.id_usuario","=",$Id_usuario)
+      ->select("c.id_curso","nombre_curso")
+      ->get();
+
+      $this->View("docente.llenadonotas",["cursos"=>$Cursos]);
+    }
+  }
 }
 

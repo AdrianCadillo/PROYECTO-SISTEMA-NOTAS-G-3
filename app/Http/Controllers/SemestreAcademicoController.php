@@ -36,6 +36,7 @@ class SemestreAcademicoController extends BaseController
 
   public function create()
   {
+    
     $this->View("semestre.create");
   }
 

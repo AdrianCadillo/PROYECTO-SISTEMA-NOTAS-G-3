@@ -9,7 +9,35 @@
             <h4>Realizar mi inscripción</h4>
         </div>
         <div class="card-body table table-responsive">
-            <form action="" method="post">
+            <form action="{{$this->route("inscripcion/inscribir")}}" method="post">
+
+               @if ($this->ExistSession("mensaje"))
+                @if ($this->getSession("mensaje") == 1)
+                <div class="alert alert-success">
+                    Inscripción realizado correctamente
+                </div>
+                @else
+                <div class="alert alert-danger">
+                    Error al realziar la inscripción
+                </div>
+                @endif
+                
+                @php
+                $this->destroySession("mensaje")
+                @endphp
+                @endif
+                
+                @if ($this->ExistSession("error"))
+                
+                <div class="alert alert-danger">
+                    {{$this->getSession("error")}}
+                </div>
+                
+                @php
+                $this->destroySession("error")
+                @endphp
+                @endif
+                <input type="hidden" name="token_" value="{{$this->get_Csrf()}}">
                 <table class="table table-bordered table-striped" id="tabla_inscripcion">
                     <thead>
                         <tr>
@@ -40,7 +68,13 @@
                         @endforeach
                     </tbody>
                 </table>
-                    <button class="btn btn-success"><b>Realizar mi inscripción <i class="fas fa-save"></i></b></button>
+                  @if (count($cursos) > 0)
+                  <button class="btn btn-success"><b>Realizar mi inscripción <i class="fas fa-save"></i></b></button>
+                  @else
+                  <div class="alert alert-danger">
+                    <b>No hay cursos para inscribirse</b>
+                  </div>
+                  @endif
             </form>
         </div>
     </div>

@@ -82,7 +82,7 @@ class LoginController extends BaseController
 
                /// redirigir
 
-               $this->RedirectTo("curso");
+               $this->RedirectTo("dashboard");
             }
             else
             {

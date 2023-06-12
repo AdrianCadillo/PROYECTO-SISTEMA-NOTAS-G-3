@@ -49,7 +49,7 @@ class BaseController extends View
     {
       if($this->ExistSession("remember") || isset($_COOKIE['remember']))
       {
-        $this->RedirectTo("curso");
+        $this->RedirectTo("dashboard");
         exit;
       }
     }

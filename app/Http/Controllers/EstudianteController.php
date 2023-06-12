@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use Http\pageextras\PageExtra;
 use lib\BaseController;
 use models\Curso;
 use models\Estudiante;
@@ -30,7 +32,13 @@ class EstudianteController extends BaseController
       /*
       $this->ModelEstudiante = new Estudiante;
       $estudiantes = $this->ModelEstudiante->Query()->get();*/
-      $this->View("estudiante.index");
+      if($this->hasPermission("Administrador"))
+      {
+        $this->View("estudiante.index");
+      }
+      else{
+        PageExtra::PageNoAutorizado();
+      }
     }
 
     /// PARA MOSTRAR los datos en formato json de los estudiantes y sus cursos matriculados

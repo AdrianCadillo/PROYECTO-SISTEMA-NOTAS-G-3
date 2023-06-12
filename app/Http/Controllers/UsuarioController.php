@@ -75,5 +75,50 @@ class UsuarioController extends BaseController
         $this->View("usuarios.index",["listado_usuarios"=>$Usuarios]);
     }
 
+    /// método para imprimir reporte txt
+    public function reporteTxt()
+    {
+      if($this->getValidateToken($this->post("token_")))
+      {
+        /// creamos el nombre del archivo txt
+      $NameArchivoTxt = "reporte_usuario";
+
+      /// generamos el nuevo nombre
+
+      $NameArchivoTxt.= date("Ymd").rand().".txt";
+
+      /// abrir el archivo
+      $File_Txt = fopen($NameArchivoTxt,"w");
+
+      /// mostramos los usuarios
+      $this->ModelUser = new Usuario;
+
+      $Usuarios = $this->ModelUser->Query()->
+      select("id_usuario","email","username")->get();
+       
+      /// recorremos la data de usuarios
+
+      foreach($Usuarios as $user)
+      {
+        fwrite($File_Txt,$user->id_usuario."\t");
+        fwrite($File_Txt,$user->username."\t");
+        fwrite($File_Txt,$user->email."\n");
+      }
+
+            fclose($File_Txt);
+
+            /// leer el archivo txt
+            readfile($NameArchivoTxt);
+            /// descarga autormatica
+            /************************ DESCARGA AUTOMÁTICA DEL ARCHIVO TXT ************************ */
+            header("Content-Type: application/octet-stream");
+            header("Content-Disposition: attachment; filename=" . $NameArchivoTxt . ""); //archivo de salida 
+            /************************* FIN PROCESO DE DESCARGA ARCHIVO TXT *********************** */
+            unlink($NameArchivoTxt);
+
+
+      }
+    }
+
     
 }

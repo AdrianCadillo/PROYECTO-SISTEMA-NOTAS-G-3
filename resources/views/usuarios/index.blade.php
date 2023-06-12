@@ -9,6 +9,10 @@
         <a href="{{$this->route("usuario/create")}}" class="btn btn-primary float float-end"><b>nuevo</b><i class="fas fa-plus"></i></a>
     </div>
     <div class="card-body">
+        <form action="{{$this->route("usuario/reporteTxt")}}" method="post">
+            <input type="hidden" name="token_" value="{{$this->get_Csrf()}}">
+            <button class="btn btn-danger mb-1"><i class="fas fa-file"></i> Generar reporte txt</button>
+        </form>
         <table class="table table-bordered table-striped" id="Tabla-estudiantes">
           <thead>
             <tr>

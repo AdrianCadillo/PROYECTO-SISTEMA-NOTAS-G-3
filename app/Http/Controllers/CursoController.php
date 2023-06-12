@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use Http\pageextras\PageExtra;
 use lib\BaseController;
 use models\Curso;
 use repository\implementacion\Model;
@@ -17,9 +19,16 @@ class CursoController extends BaseController
 
   /// método index para mostrar la vista de cursos
 
-  public function index()
+  public function index()/// hasRole()
   {
-    $this->View("cursos.index");
+    if($this->hasPermission("Administrador"))
+    {
+      $this->View("cursos.index");
+    }
+    else
+    {
+      PageExtra::PageNoAutorizado();
+    }
   }
   /// método para registrar cursos
 
