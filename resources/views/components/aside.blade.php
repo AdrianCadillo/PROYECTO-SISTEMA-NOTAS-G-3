@@ -129,6 +129,19 @@
           </li>
           @endif
           @endif
+
+          @if ($this->hasPermission("Administrador"))
+
+          <li class="nav-item">
+            <a href="{{$this->route("configuracion")}}" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Configuración
+              </p>
+            </a>
+          </li>
+
+          @endif
         
         </ul>
       </nav>

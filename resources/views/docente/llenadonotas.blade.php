@@ -49,25 +49,84 @@ $(document).ready(function(){
     Id_Curso_ = $(this).val();
 
     mostrarEstudiantesInscritos(Id_Curso_);
-
-    /// realizar el ingreso de notas
-    $('#listadoEstudiantes').on('click','#ingresar',function(){
-
-        /// obtenemos los datos del estudiante a ingresar su nota
-        let Fila_Seleccionado = $(this).closest('tr') /// fila seleccionado
-        let ESTUDIANTE_CURSO = Fila_Seleccionado.find('td').eq(0).text();
-        let ESTUIDNATE = Fila_Seleccionado.find('td').eq(1).text();
-        let PP = Fila_Seleccionado.find('#pp');
-        let PT = Fila_Seleccionado.find('#pt');
-        let EP = Fila_Seleccionado.find('#ep');
-
-        if(PP.val().trim().length == 0 || parseInt(PP.val().trim())<0)
-        {
-            alert("nota no aceptado [0-20]")
-        }
-
-    });
   });
+
+/// realizar el ingreso de notas
+$('#listadoEstudiantes').on('click','#ingresar',function(){
+
+/// obtenemos los datos del estudiante a ingresar su nota
+let Fila_Seleccionado = $(this).closest('tr') /// fila seleccionado
+let ESTUDIANTE_CURSO = Fila_Seleccionado.find('td').eq(0).text();
+let ESTUIDNATE = Fila_Seleccionado.find('td').eq(1).text();
+let PP = Fila_Seleccionado.find('#pp');
+let PT = Fila_Seleccionado.find('#pt');
+let EP = Fila_Seleccionado.find('#ep');
+
+if(PP.val().trim().length == 0 || parseInt(PP.val().trim())<0 ||parseInt(PP.val().trim())>20)
+    {
+    PP.focus();
+    Swal.fire({
+    title:"Mensaje del sistema",
+    text:"Error, el campo de PP está vació , ingrese una nota de [0-20]",
+    icon:"warning"
+    })
+    }
+    else
+    {
+    if(PT.val().trim().length == 0 || parseInt(PT.val().trim())<0 || parseInt(PT.val().trim())> 20)
+        {
+        PT.focus()
+        Swal.fire({
+        title:"Mensaje del sistema",
+        text:"Error, el campo de PT está vació , ingrese una nota de [0-20]",
+        icon:"warning"
+        })
+        }
+        else{
+        if(EP.val().trim().length == 0 || parseInt(EP.val().trim())<0 || parseInt(EP.val().trim())> 20)
+            {
+            EP.focus()
+            Swal.fire({
+            title:"Mensaje del sistema",
+            text:"Error, el campo de EP está vació , ingrese una nota de [0-20]",
+            icon:"warning"
+            })
+            }else
+            {
+
+            /// proceso de ingreso de notas
+            $.ajax({
+            url:"{{$this->route('llenadonotas/procesoLlenadoNotas')}}",
+            method:"POST",
+            data:{token_:"{{$this->get_Csrf()}}",estudiante:ESTUDIANTE_CURSO,pp:PP.val(),pt:PT.val(),ep:EP.val()},
+            success:function(response)
+            {
+            response = JSON.parse(response);
+            if(response.response == 1)
+            {
+            Swal.fire({
+            title:"Mensaje del sistema",
+            text:"El ingreso de notas para el estudiante "+ESTUIDNATE+" se ingresó correctamente",
+            icon:"success"
+            }).then(function(){
+            mostrarEstudiantesInscritos(Id_Curso_);
+            })
+            }
+            else
+            {
+            Swal.fire({
+            title:"Mensaje del sistema",
+            text:"Error al ingresar notas del estudiante "+ESTUIDNATE,
+            icon:"error"
+            })
+            }
+            }
+            })
+            }
+            }
+            }
+
+});
 });
 
 /// mostrar los estudiantes inscritos a un curso

@@ -1,17 +1,1 @@
-[12-Jun-2023 01:47:13 UTC] PHP Fatal error:  Uncaught Error: Typed property UsuarioController::$ModelUser must not be accessed before initialization in C:\laragon\www\sistema_notas\app\Http\Controllers\UsuarioController.php:95
-Stack trace:
-#0 C:\laragon\www\sistema_notas\app\lib\ProcesRoute.php(129): UsuarioController->reporteTxt()
-#1 C:\laragon\www\sistema_notas\app\lib\ProcesRoute.php(75): lib\Route::getParams(Object(UsuarioController), 'reporteTxt')
-#2 C:\laragon\www\sistema_notas\autoload.php(20): lib\Route::run()
-#3 C:\laragon\www\sistema_notas\index.php(19): require('C:\\laragon\\www\\...')
-#4 {main}
-  thrown in C:\laragon\www\sistema_notas\app\Http\Controllers\UsuarioController.php on line 95
-[12-Jun-2023 01:54:00 UTC] PHP Fatal error:  Uncaught TypeError: readfile(): Argument #1 ($filename) must be of type string, resource given in C:\laragon\www\sistema_notas\app\Http\Controllers\UsuarioController.php:111
-Stack trace:
-#0 C:\laragon\www\sistema_notas\app\Http\Controllers\UsuarioController.php(111): readfile(Resource id #67)
-#1 C:\laragon\www\sistema_notas\app\lib\ProcesRoute.php(129): UsuarioController->reporteTxt()
-#2 C:\laragon\www\sistema_notas\app\lib\ProcesRoute.php(75): lib\Route::getParams(Object(UsuarioController), 'reporteTxt')
-#3 C:\laragon\www\sistema_notas\autoload.php(20): lib\Route::run()
-#4 C:\laragon\www\sistema_notas\index.php(19): require('C:\\laragon\\www\\...')
-#5 {main}
-  thrown in C:\laragon\www\sistema_notas\app\Http\Controllers\UsuarioController.php on line 111
+[15-Jun-2023 01:24:30 UTC] PHP Warning:  Undefined array key "USERNAME " in C:\laragon\www\sistema_notas\app\Http\Controllers\ConfiguracionController.php on line 36
