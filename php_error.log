@@ -1,1 +1,25 @@
 [15-Jun-2023 01:24:30 UTC] PHP Warning:  Undefined array key "USERNAME " in C:\laragon\www\sistema_notas\app\Http\Controllers\ConfiguracionController.php on line 36
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "foto" on array in C:\laragon\www\sistema_notas\vendor\windwalker\edge\src\Edge.php(227) : eval()'d code on line 23
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\vendor\windwalker\edge\src\Edge.php(227) : eval()'d code on line 26
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "username" on array in C:\laragon\www\sistema_notas\vendor\windwalker\edge\src\Edge.php(227) : eval()'d code on line 17
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 91
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 91
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 91
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 91
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 91
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 91
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 91
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 91
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
+[15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 91

@@ -16,32 +16,32 @@
     </div>
     <div class="card-body">
 
-        @if ($this->ExistSession("mensaje"))
-            @if ($this->getSession("mensaje") == 1)
-                <div class="alert alert-success">
-                    La restauración del sistema se a realizado correctamente
-                </div>
-            @else
-            <div class="alert alert-danger">
-                Error al restaurar el sistema 
-            </div>
-            @endif
-
-            @php
-                $this->destroySession("mensaje")
-            @endphp
+       @if ($this->ExistSession("mensaje"))
+        @if ($this->getSession("mensaje") == 1)
+        <div class="alert alert-success">
+            La restauración del sistema se a realizado correctamente
+        </div>
+        @else
+        <div class="alert alert-danger">
+            Error al restaurar el sistema
+        </div>
         @endif
-
-
+        
+        @php
+        $this->destroySession("mensaje")
+        @endphp
+        @endif
+        
+        
         @if ($this->ExistSession("error"))
-            
-            <div class="alert alert-danger">
-              {{$this->getSession("error")}}
-            </div>
-
-            @php
-                $this->destroySession("error")
-            @endphp
+        
+        <div class="alert alert-danger">
+            {{$this->getSession("error")}}
+        </div>
+        
+        @php
+        $this->destroySession("error")
+        @endphp
         @endif
         <div class="tab-content" id="nav-tabContent">
             {{--COPIA DE SEGURIDAD---}}
@@ -49,7 +49,8 @@
                <form action="{{$this->route("configuracion/CopiaSeguridad")}}" method="post">
                 <input type="hidden" name="token_" value="{{$this->get_Csrf()}}">
                 <label for="" class="form-label float-start">Nombre de la copia de seguridad (*)</label>
-                <input type="text" name="copia" class="form-control" placeholder="Nombre de la copia...">
+                <input type="text" name="copia" class="form-control" placeholder="Nombre de la copia..."
+                autofocus required>
                 <button class="btn btn-primary float-end m-2"> Exportar</button>
                </form>
             </div>

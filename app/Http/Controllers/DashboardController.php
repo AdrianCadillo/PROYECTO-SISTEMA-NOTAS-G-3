@@ -6,6 +6,8 @@ class DashboardController extends BaseController
  public function __construct()
   {
     parent::__construct();
+
+    $this->NoAuth();
   }
 
   public function index()

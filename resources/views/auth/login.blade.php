@@ -55,7 +55,7 @@
 
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" autofocus placeholder="Email" name="email"
-                            id="email" value="{{ $this->old('email') }}">
+                            id="email" value="{{ $this->old('email') }}" autocomplete="email" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" placeholder="Password" name="password"
-                            id="password">
+                            id="password" autocomplete="password" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
