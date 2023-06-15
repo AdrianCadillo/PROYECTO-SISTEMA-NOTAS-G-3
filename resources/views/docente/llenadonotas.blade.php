@@ -156,12 +156,15 @@ function mostrarEstudiantesInscritos(Id_Curso)
                     </tr>
                     `;
                 });
-
-                $('#listadoEstudiantes').html(tr);
-
-                ValidarEnterInput()
-
             }
+            else
+            {
+                tr+= '<td colspan="5" class="text-center text-danger">No hay estudiantes para mostrar...</td>';
+            }
+            $('#listadoEstudiantes').html(tr);
+
+            ValidarEnterInput()
+
         }
     })
 }

@@ -23,3 +23,54 @@
 [15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 91
 [15-Jun-2023 02:27:47 UTC] PHP Warning:  Undefined variable $Id_Usuario in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 85
 [15-Jun-2023 02:27:47 UTC] PHP Warning:  Attempt to read property "rol" on array in C:\laragon\www\sistema_notas\app\lib\BaseController.php on line 91
+[15-Jun-2023 04:45:58 Europe/Berlin] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\sistema_notas\index.php on line 14
+[15-Jun-2023 04:45:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\sistema_notas\index.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\sistema_notas\index.php on line 14
+[15-Jun-2023 04:52:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Windwalker\Edge\Edge::asset() in C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php(226) : eval()'d code:13
+Stack trace:
+#0 C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php(226): eval()
+#1 C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php(181): Windwalker\Edge\Edge->Windwalker\Edge\{closure}('resources/views...')
+#2 C:\xampp\htdocs\sistema_notas\app\lib\View.php(24): Windwalker\Edge\Edge->render('resources/views...', Array)
+#3 C:\xampp\htdocs\sistema_notas\app\Http\Controllers\LoginController.php(23): lib\View::View('auth.login')
+#4 C:\xampp\htdocs\sistema_notas\app\lib\ProcesRoute.php(84): LoginController->index()
+#5 C:\xampp\htdocs\sistema_notas\autoload.php(20): lib\Route::run()
+#6 C:\xampp\htdocs\sistema_notas\index.php(19): require('C:\\xampp\\htdocs...')
+#7 {main}
+
+Next Windwalker\Edge\Exception\EdgeException: Call to undefined method Windwalker\Edge\Edge::asset()
+
+| View layout: resources/views/auth/login.blade.php (resources/views/auth/login.blade.php) in C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php:259
+Stack trace:
+#0 C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php(184): Windwalker\Edge\Edge->wrapException(Object(Error), 'resources/views...', 'resources/views...')
+#1 C:\xampp\htdocs\sistema_notas\app\lib\View.php(24): Windwalker\Edge\Edge->render('resources/views...', Array)
+#2 C:\xampp\htdocs\sistema_notas\app\Http\Controllers\LoginController.php(23): lib\View::View('auth.login')
+#3 C:\xampp\htdocs\sistema_notas\app\lib\ProcesRoute.php(84): LoginController->index()
+#4 C:\xampp\htdocs\sistema_notas\autoload.php(20): lib\Route::run()
+#5 C:\xampp\htdocs\sistema_notas\index.php(19): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php on line 259
+[15-Jun-2023 04:52:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Windwalker\Edge\Edge::asset() in C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php(226) : eval()'d code:13
+Stack trace:
+#0 C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php(226): eval()
+#1 C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php(181): Windwalker\Edge\Edge->Windwalker\Edge\{closure}('resources/views...')
+#2 C:\xampp\htdocs\sistema_notas\app\lib\View.php(24): Windwalker\Edge\Edge->render('resources/views...', Array)
+#3 C:\xampp\htdocs\sistema_notas\app\Http\Controllers\LoginController.php(23): lib\View::View('auth.login')
+#4 C:\xampp\htdocs\sistema_notas\app\lib\ProcesRoute.php(84): LoginController->index()
+#5 C:\xampp\htdocs\sistema_notas\autoload.php(20): lib\Route::run()
+#6 C:\xampp\htdocs\sistema_notas\index.php(19): require('C:\\xampp\\htdocs...')
+#7 {main}
+
+Next Windwalker\Edge\Exception\EdgeException: Call to undefined method Windwalker\Edge\Edge::asset()
+
+| View layout: resources/views/auth/login.blade.php (resources/views/auth/login.blade.php) in C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php:259
+Stack trace:
+#0 C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php(184): Windwalker\Edge\Edge->wrapException(Object(Error), 'resources/views...', 'resources/views...')
+#1 C:\xampp\htdocs\sistema_notas\app\lib\View.php(24): Windwalker\Edge\Edge->render('resources/views...', Array)
+#2 C:\xampp\htdocs\sistema_notas\app\Http\Controllers\LoginController.php(23): lib\View::View('auth.login')
+#3 C:\xampp\htdocs\sistema_notas\app\lib\ProcesRoute.php(84): LoginController->index()
+#4 C:\xampp\htdocs\sistema_notas\autoload.php(20): lib\Route::run()
+#5 C:\xampp\htdocs\sistema_notas\index.php(19): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\sistema_notas\vendor\windwalker\edge\src\Edge.php on line 259
